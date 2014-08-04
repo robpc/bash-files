@@ -3,5 +3,7 @@
   l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   ll = log --stat --abbrev-commit
   d = diff --color-words
+  co = checkout
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
   pr = pull --rebase
+  srp = "!git stash; git pull --rebase; git stash pop"
