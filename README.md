@@ -24,7 +24,7 @@ Add the following to `~/.bashrc`
 
     source ~/.bash-git-prompt/gitprompt.sh
 
-Execute 
+Execute
 
     ln -s ~/.bash-files/git-prompt-colors.sh .git-prompt-colors.sh
 
@@ -32,3 +32,9 @@ Add the following to `~/.gitconfig`
 
     [include]
       path = .bash-files/gitconfig
+
+Screen
+------
+Execute
+
+    ln -s ~/.bash-files/screenrc ~/.screenrc
