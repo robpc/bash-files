@@ -1,0 +1,16 @@
+#!/bin/bash
+
+usage() {
+  echo
+  echo "Usage: $0 module_name"
+  exit
+}
+
+module=$1
+if [ "${module}" == "" ]; then
+  usage
+fi
+
+git submodule deinit ${module}
+git rm ${module}
+rm -rf .git/modules/${module}

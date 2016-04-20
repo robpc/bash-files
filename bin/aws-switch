@@ -1,0 +1,49 @@
+#!/bin/bash
+
+PROFILE=$1
+
+if [ "$PROFILE" == "" ]; then
+  echo
+  echo "$0 profile"
+  echo "  profile - name of the profile to switch to. Basically config.{profile}, etc"
+  exit
+fi
+
+link_profile_file() {
+  dir=$1
+  if [ "$dir" == "" ]; then
+    echo "missing dir from $0"
+    return
+  fi
+
+  file=$2
+  if [ "$file" == "" ]; then
+    echo "missing file from $0"
+    return
+  fi
+
+  profile=$3
+  if [ "$profile" == "" ]; then
+    echo "missing profile from $0"
+    return
+  fi
+
+  if [ -f ${file} -a ! -L ${file} ]; then
+    echo "Error ${file} is not a link, not setting profile version"
+    return
+  fi
+
+  rm -f ${dir}/${file}
+  if [ -f ${dir}/${file}.${profile} ]; then
+    echo "Linking ${dir}/${file} to ${file}.${profile}"
+    ln -s ${file}.${profile} ${dir}/${file}
+  fi
+}
+
+DIR=${HOME}/.aws
+
+CONFIG=config
+CREDENTIALS=credentials
+
+link_profile_file ${DIR} ${CONFIG} ${PROFILE}
+link_profile_file ${DIR} ${CREDENTIALS} ${PROFILE}
