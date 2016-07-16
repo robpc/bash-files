@@ -38,3 +38,14 @@ Screen
 Execute
 
     ln -s ~/.bash-files/screenrc ~/.screenrc
+
+Windows
+-------
+Clone `posh-git`
+
+    git clone https://github.com/dahlbyk/posh-git.git ~/.post-git
+
+Add the following to PowerShell profile (`$profile`)
+
+    . $HOME/.bash-files/profile.ps1
+
