@@ -58,9 +58,9 @@ function lla
 function la { ls -force }
 
 function docker-rm-all {
-  docker ps -a | Foreach{ docker rm ($_ -split "\s+")[0]}
+  docker ps -a | select -Skip 1 | Foreach{ docker rm ($_ -split "\s+")[0]}
 }
 
 function docker-volume-rm-all {
-  docker volume ls  | Foreach {docker volume rm ($_ -split '\s+')[1]}
+  docker volume ls | select -Skip 1 | Foreach {docker volume rm ($_ -split '\s+')[1]}
 }
