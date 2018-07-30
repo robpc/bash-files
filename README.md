@@ -3,6 +3,14 @@ bash-files
 
 Location to store personal bash settings
 
+Quickstart
+----------
+
+Script that will do all the below for linux and osx.
+
+    bash <(curl -s https://raw.githubusercontent.com/robpc/bash-files/master/install.bash.sh)
+
+
 Setup
 -----
 
